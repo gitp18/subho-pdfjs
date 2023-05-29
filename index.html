@@ -2,26 +2,104 @@
 <html>
 <head>
   <title>PDF.js Viewer Example</title>
-  <style>
-    #pdfViewer {
-      width: 100%;
-      height: 600px;
-    }
-  </style>
+  <link rel="stylesheet" media="screen" href="/style.css">
 </head>
 <body>
   <input type="file" id="pdfInput" accept=".pdf">
-  <div id="pdfViewer"></div>
-  <button id="prev">Previous</button>
-  <button id="next">next</button>
+  <div id="outerContainer">
+    <div id="mainContainer">
+
+      <div class="toolbar">
+        <div id="toolbarContainer">
+          <div id="toolbarViewer">
+            <div id="toolbarViewerMiddle">
+
+              <div class="splitToolbarButton">
+
+                <span id="scaleSelectContainer" class="dropdownToolbarButton">
+                  <select id="scaleSelect">
+                    <option id="pageAutoOption" value="auto" selected="selected">אוטומטי</option>
+                    <option id="pageActualOption" value="page-actual">גודל מלא</option>
+                    <option id="pageFitOption" value="page-fit">התאמה לדף</option>
+                    <option id="pageWidthOption" value="page-width">התאמה לרוחב</option>
+                    <option value="0.5">50%</option>
+                    <option value="0.75">75%</option>
+                    <option value="1">100%</option>
+                    <option value="1.25">125%</option>
+                    <option value="1.5">150%</option>
+                    <option value="2">200%</option>
+                    <option value="3">300%</option>
+                    <option value="4">400%</option>
+                  </select>
+                </span>
+
+                <button id="zoomOut" class="toolbarButton zoomOut" title="הגדלת העמוד">
+                  <span>הגדלת העמוד</span>
+                </button>
+
+                <div class="splitToolbarButtonSeparator"></div>
+
+                <button id="zoomIn" class="toolbarButton zoomIn" title="הקטנת העמוד">
+                  <span>הקטנת העמוד</span>
+                </button>
+              </div>
+
+              <div id="navigationToolbarButton" class="splitToolbarButton">
+
+                <button class="toolbarButton pageDown" id="next" title="עמוד הבא">
+                  <span>עמוד הבא</span>
+                </button>
+
+                <div class="splitToolbarButtonSeparator"></div>
+
+                <button class="toolbarButton pageUp" id="previous" title="עמוד קודם" disabled>
+                  <span>עמוד קודם</span>
+                </button>
+
+                <span id="numPages" class="toolbarLabel">0 /</span><input type="number" id="pageNumber" class="toolbarField pageNumber" min="1" autocomplete="off" max="2">
+
+              </div>
+
+              <div class="splitToolbarButton">
+
+                <button id="download" class="toolbarButton" title="קובץ להורדה">
+                  <span>קובץ להורדה</span>
+                </button>
+
+                <div class="splitToolbarButtonSeparator hiddenMediumView"></div>
+
+                <button id="print" class="toolbarButton hiddenMediumView" title="הדפסה">
+                  <span>הדפסה</span>
+                </button>
+
+              </div>
+
+            </div>
+          </div>
+
+          <div id="loadingBar" class="hidden">
+            <div class="progress"></div>
+            <div class="glimmer"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="viewerContainer">
+        <div id="viewer" class="pdfViewer"></div>
+      </div>
+
+    </div> <!-- mainContainer -->
+
+  </div> <!-- outerContainer -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
   <script>
     const pdfInput = document.getElementById('pdfInput');
-    const pdfViewer = document.getElementById('pdfViewer');
+    const pdfViewer = document.getElementById('viewer');
     const container = document.createElement('div');
-    //const nextElement = document.getElementById('next');
-    //const previousElement = document.getElementById('previous');
+    const nextElement = document.getElementById('next');
+    const previousElement = document.getElementById('previous');
     let pageNum = 1;
 
     pdfInput.addEventListener('change', function(event) {
