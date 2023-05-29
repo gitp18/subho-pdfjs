@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PDF.js Viewer Example</title>
+  <style>
+    #pdfViewer {
+      width: 100%;
+      height: 600px;
+    }
+  </style>
+</head>
+<body>
+  <input type="file" id="pdfInput" accept=".pdf">
+  <div id="pdfViewer"></div>
+  <button id="prev">Previous</button>
+  <button id="next">next</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+  <script>
+    const pdfInput = document.getElementById('pdfInput');
+    const pdfViewer = document.getElementById('pdfViewer');
+    const container = document.createElement('div');
+    //const nextElement = document.getElementById('next');
+    //const previousElement = document.getElementById('previous');
+    let pageNum = 1;
+
+    pdfInput.addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const fileReader = new FileReader();
+        fileReader.onload = function() {
+          const typedArray = new Uint8Array(this.result);
+          displayPDF(typedArray);
+        };
+        fileReader.readAsArrayBuffer(file);
+      }
+    });
+
+    function displayPDF(pdfData) {
+      pdfjsLib.getDocument({ data: pdfData }).promise.then(function(pdf) {
+        const pagesPromises = [];
+        for (let i = 1; i <= pdf.numPages; i++) {
+          pagesPromises.push(pdf.getPage(i));
+        }
+        Promise.all(pagesPromises).then(function(pages) {
+          //const container = document.createElement('div');
+          for (let i = 0; i < pages.length; i++) {
+            renderPage(pages[i]);
+          }
+          pdfViewer.innerHTML = '';
+          pdfViewer.appendChild(container);
+        });
+      });
+    }
+    function renderPage(pageNum) {
+        const scale = 1.5;
+        const viewport = pageNum.getViewport({ scale: scale });
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        const renderContext = {
+            canvasContext: context,
+            viewport: viewport
+        };
+        pageNum.render(renderContext).promise.then(function(x) {
+            container.appendChild(canvas);
+        });
+    }
+    /*nextElement.addEventListener('click', () => {
+        pageNum++;
+        renderPage(pageNum);
+    });
+
+    function queueRenderPage(num) {
+        if (pageRendering) {
+            pageNumPending = num;
+        } else {
+            renderPage(num);
+        }
+    }*/
+
+  </script>
+</body>
+</html>

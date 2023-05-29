@@ -1,0 +1,13 @@
+{
+  "name": "subho",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "web-server": "http-server -p 4000",
+    "posttest": "pkill -f http-server"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
