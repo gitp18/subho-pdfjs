@@ -2,20 +2,21 @@
 <html>
 <head>
   <title>PDF.js Viewer Example</title>
+  <link rel="stylesheet" media="screen" href="/idan_style.css">
 </head>
 <body>
   <input type="file" id="pdfInput" accept=".pdf">
-  <div id="outerContainer">
-    <div id="mainContainer">
+  <div id="idan_outerContainer">
+    <div id="idan_mainContainer">
 
       <div class="toolbar">
         <div id="toolbarContainer">
           <div id="toolbarViewer">
             <div id="toolbarViewerMiddle">
 
-              <div class="splitToolbarButton">
+              <div class="idan_splitToolbarButton">
 
-                <span id="scaleSelectContainer" class="dropdownToolbarButton">
+                <span id="scaleSelectContainer" class="idan_dropdownToolbarButton">
                   <select id="scaleSelect">
                     <option id="pageAutoOption" value="auto" selected="selected">אוטומטי</option>
                     <option id="pageActualOption" value="page-actual">גודל מלא</option>
@@ -32,42 +33,42 @@
                   </select>
                 </span>
 
-                <button id="zoomOut" class="toolbarButton zoomOut" title="הגדלת העמוד">
+                <button id="idan_zoomOut" class="idan_toolbarButton zoomOut" title="הגדלת העמוד">
                   <span>הגדלת העמוד</span>
                 </button>
 
-                <div class="splitToolbarButtonSeparator"></div>
+                <div class="idan_splitToolbarButtonSeparator"></div>
 
-                <button id="zoomIn" class="toolbarButton zoomIn" title="הקטנת העמוד">
+                <button id="idan_zoomIn" class="idan_toolbarButton idan_zoomIn" title="הקטנת העמוד">
                   <span>הקטנת העמוד</span>
                 </button>
               </div>
 
-              <div id="navigationToolbarButton" class="splitToolbarButton">
+              <div id="navigationToolbarButton" class="idan_splitToolbarButton">
 
-                <button class="toolbarButton pageDown" id="next" title="עמוד הבא">
+                <button class="idan_toolbarButton pageDown" id="idan_next" title="עמוד הבא">
                   <span>עמוד הבא</span>
                 </button>
 
-                <div class="splitToolbarButtonSeparator"></div>
+                <div class="idan_splitToolbarButtonSeparator"></div>
 
-                <button class="toolbarButton pageUp" id="previous" title="עמוד קודם" disabled>
+                <button class="idan_toolbarButton pageUp" id="idan_previous" title="עמוד קודם" disabled>
                   <span>עמוד קודם</span>
                 </button>
 
-                <span id="numPages" class="toolbarLabel">0 /</span><input type="number" id="pageNumber" class="toolbarField pageNumber" min="1" autocomplete="off" max="2">
+                <span id="idan_numPages" class="idan_toolbarLabel">0 /</span><input type="number" id="idan_pageNumber" class="idan_toolbarField idan_pageNumber" min="1" autocomplete="off" max="2">
 
               </div>
 
-              <div class="splitToolbarButton">
+              <div class="idan_splitToolbarButton">
 
-                <button id="download" class="toolbarButton" title="קובץ להורדה">
+                <button id="download" class="idan_toolbarButton" title="קובץ להורדה">
                   <span>קובץ להורדה</span>
                 </button>
 
-                <div class="splitToolbarButtonSeparator hiddenMediumView"></div>
+                <div class="idan_splitToolbarButtonSeparator idan_hiddenMediumView"></div>
 
-                <button id="print" class="toolbarButton hiddenMediumView" title="הדפסה">
+                <button id="print" class="idan_toolbarButton idan_hiddenMediumView" title="הדפסה">
                   <span>הדפסה</span>
                 </button>
 
@@ -76,7 +77,7 @@
             </div>
           </div>
 
-          <div id="loadingBar" class="hidden">
+          <div id="idan_loadingBar" class="hidden">
             <div class="progress"></div>
             <div class="glimmer"></div>
           </div>
@@ -84,8 +85,8 @@
         </div>
       </div>
 
-      <div id="viewerContainer">
-        <div id="viewer" class="pdfViewer"></div>
+      <div id="idan_viewerContainer">
+        <div id="viewer" class="idan_pdfViewer"></div>
       </div>
 
     </div> <!-- mainContainer -->
@@ -105,7 +106,7 @@
     const container = document.createElement('div');
     const nextElement = document.getElementById('next');
     const previousElement = document.getElementById('previous');
-    const numPagesElement = document.getElementById('numPages');
+    const numPagesElement = document.getElementById('idan_numPages');
     const pageNumberElement = document.getElementById('pageNumber');
 
     var pdfDoc = null,

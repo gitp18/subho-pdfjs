@@ -1,0 +1,738 @@
+/* Copyright 2014 Mozilla Foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+@media screen {
+  :root {
+    --body-bg-color: rgba(212, 212, 215, 1);
+    --button-hover-color: rgba(221, 222, 223, 1);
+    --dialog-button-bg-color: rgba(12, 12, 13, 0.1);
+    --dialog-button-border: none;
+    --dialog-button-hover-bg-color: rgba(12, 12, 13, 0.3);
+    --dir-factor: 1;
+    --doorhanger-bg-color: rgba(255, 255, 255, 1);
+    --doorhanger-border-color: rgba(12, 12, 13, 0.2);
+    --doorhanger-hover-bg-color: rgba(237, 237, 237, 1);
+    --doorhanger-hover-color: rgba(12, 12, 13, 1);
+    --doorhanger-icon-opacity: 0.9;
+    --doorhanger-separator-color: rgba(222, 222, 222, 1);
+    --dropdown-btn-bg-color: rgba(215, 215, 219, 1);
+    --dropdown-btn-border: none;
+    --field-bg-color: rgba(255, 255, 255, 1);
+    --field-border-color: rgba(187, 187, 188, 1);
+    --field-color: rgba(6, 6, 6, 1);
+    --highlight-bg-color: rgba(180, 0, 170, 1);
+    --highlight-selected-bg-color: rgba(0, 100, 0, 1);
+    --inline-end: right;
+    --inline-start: left;
+    --input-disabled-border-color: transparent;
+    --input-focus-border-color: Highlight;
+    --input-focus-outline: 1px solid Canvas;
+    --input-hover-border-color: black;
+    --input-unfocused-border-color: transparent;
+    --link-outline: none;
+    --loading-icon-delay: 400ms;
+    --loading-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' style='animation:spinLoadingIcon 1s steps(12,end) infinite'%3E%3Cstyle%3E@keyframes spinLoadingIcon%7Bto%7Btransform:rotate(360deg)%7D%7D%3C/style%3E%3Cpath d='M7 3V1s0-1 1-1 1 1 1 1v2s0 1-1 1-1-1-1-1z'/%3E%3Cpath fill-opacity='.93' d='m4.63 4.1-1-1.73S3.13 1.5 4 1c.87-.5 1.37.37 1.37.37l1 1.73s.5.87-.37 1.37c-.87.57-1.37-.37-1.37-.37z'/%3E%3Cpath fill-opacity='.86' d='m3.1 6.37-1.73-1S.5 4.87 1 4c.5-.87 1.37-.37 1.37-.37l1.73 1s.87.5.37 1.37c-.5.87-1.37.37-1.37.37z'/%3E%3Cpath fill-opacity='.79' d='M3 9H1S0 9 0 8s1-1 1-1h2s1 0 1 1-1 1-1 1z'/%3E%3Cpath fill-opacity='.72' d='m4.1 11.37-1.73 1S1.5 12.87 1 12c-.5-.87.37-1.37.37-1.37l1.73-1s.87-.5 1.37.37c.5.87-.37 1.37-.37 1.37z'/%3E%3Cpath fill-opacity='.65' d='m3.63 13.56 1-1.73s.5-.87 1.37-.37c.87.5.37 1.37.37 1.37l-1 1.73s-.5.87-1.37.37c-.87-.5-.37-1.37-.37-1.37z'/%3E%3Cpath fill-opacity='.58' d='M7 15v-2s0-1 1-1 1 1 1 1v2s0 1-1 1-1-1-1-1z'/%3E%3Cpath fill-opacity='.51' d='m10.63 14.56-1-1.73s-.5-.87.37-1.37c.87-.5 1.37.37 1.37.37l1 1.73s.5.87-.37 1.37c-.87.5-1.37-.37-1.37-.37z'/%3E%3Cpath fill-opacity='.44' d='m13.56 12.37-1.73-1s-.87-.5-.37-1.37c.5-.87 1.37-.37 1.37-.37l1.73 1s.87.5.37 1.37c-.5.87-1.37.37-1.37.37z'/%3E%3Cpath fill-opacity='.37' d='M15 9h-2s-1 0-1-1 1-1 1-1h2s1 0 1 1-1 1-1 1z'/%3E%3Cpath fill-opacity='.3' d='m14.56 5.37-1.73 1s-.87.5-1.37-.37c-.5-.87.37-1.37.37-1.37l1.73-1s.87-.5 1.37.37c.5.87-.37 1.37-.37 1.37z'/%3E%3Cpath fill-opacity='.23' d='m9.64 3.1.98-1.66s.5-.874 1.37-.37c.87.5.37 1.37.37 1.37l-1 1.73s-.5.87-1.37.37c-.87-.5-.37-1.37-.37-1.37z'/%3E%3C/svg%3E");
+    --main-color: rgba(12, 12, 13, 1);
+    --page-border: 9px solid transparent;
+    --page-margin: 1px auto -8px;
+    --pdfViewer-padding-bottom: 0;
+    --progressBar-bg-color: rgba(221, 221, 222, 1);
+    --progressBar-blend-color: rgba(116, 177, 239, 1);
+    --progressBar-color: rgba(10, 132, 255, 1);
+    --scrollbar-bg-color: auto;
+    --scrollbar-color: auto;
+    --separator-color: rgba(0, 0, 0, 0.3);
+    --sidebar-narrow-bg-color: rgba(212, 212, 215, 0.9);
+    --sidebar-toolbar-bg-color: rgba(245, 246, 247, 1);
+    --sidebar-transition-duration: 200ms;
+    --sidebar-transition-timing-function: ease;
+    --sidebar-width: 200px;
+    --thumbnail-hover-color: rgba(0, 0, 0, 0.1);
+    --thumbnail-selected-color: rgba(0, 0, 0, 0.2);
+    --toggled-btn-bg-color: rgba(0, 0, 0, 0.3);
+    --toggled-btn-color: rgba(0, 0, 0, 1);
+    --toggled-hover-active-btn-color: rgba(0, 0, 0, 0.4);
+    --toolbar-bg-color: rgba(249, 249, 250, 1);
+    --toolbar-border-bottom: none;
+    --toolbar-border-color: rgba(184, 184, 184, 1);
+    --toolbar-box-shadow: 0 1px 0 var(--toolbar-border-color);
+    --toolbar-icon-bg-color: rgba(0, 0, 0, 1);
+    --toolbar-icon-hover-bg-color: rgba(0, 0, 0, 1);
+    --toolbar-icon-opacity: 0.7;
+    --toolbarButton-download-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath fill='%23000' d='M9.794 7.318h-1.93a.5.5 0 0 0-.355.854l2.682 2.682a.5.5 0 0 0 .707 0l2.682-2.682a.5.5 0 0 0-.354-.854h-1.932V4.382h.002v-1.25h-.002v-.824h-1.5v.824h-.003v1.25h.004v2.936Z'/%3E%3Cpath fill='%23000' d='M14 3.132h-1.204v1.25H14c.345 0 .625.28.625.625v8c0 .345-.28.625-.625.625H2a.625.625 0 0 1-.625-.625v-10c0-.345.28-.625.625-.625h3.643a.63.63 0 0 1 .465.207l1.428 1.586A.622.622 0 0 0 8 4.382h.291v-1.25h-.013l-1.242-1.38a1.879 1.879 0 0 0-1.394-.62H2A1.877 1.877 0 0 0 .125 3.007v10c0 1.034.841 1.875 1.875 1.875h12a1.877 1.877 0 0 0 1.875-1.875v-8A1.877 1.877 0 0 0 14 3.132Z'/%3E%3C/svg%3E");
+    --toolbarButton-menuArrow-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath fill='%23000' d='m8.233 10.466 3.614-3.613a.5.5 0 1 0-.707-.707L7.992 9.293 4.847 6.147a.5.5 0 0 0-.707.707l3.612 3.613h.481Z'/%3E%3C/svg%3E");
+    --toolbarButton-pageDown-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath fill='%23000' d='m8.352 10.999 5.466-5.465a.624.624 0 0 0-.444-1.066.628.628 0 0 0-.442.182L7.998 9.585 3.068 4.65a.626.626 0 0 0-.885.885L7.648 11l.704-.001Z'/%3E%3C/svg%3E");
+    --toolbarButton-pageUp-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E<path fill='%23000' d='m8.352 5.001 5.466 5.465a.624.624 0 0 1-.444 1.066.628.628 0 0 1-.442-.182L7.999 6.416l-4.932 4.933a.626.626 0 0 1-.885-.885L7.648 5l.704.001Z'/%3E%3C/svg%3E");
+    --toolbarButton-print-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath fill='%23000' d='M13 4h-1V2a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2H3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-2.25 10.15-.6.6h-4.3l-.6-.6V10h5.5v4.15Zm0-10.15h-5.5V1.85l.6-.6h4.3l.6.6V4ZM13 7.6l-.4.4h-1.2l-.4-.4V6.4l.4-.4h1.2l.4.4v1.2Z'/%3E%3C/svg%3E");
+    --toolbarButton-zoomIn-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath fill='%23000' d='M7.005 9.75V14a.625.625 0 1 0 1.25 0V9.75l.5-.5h4.25a.625.625 0 0 0 0-1.25h-4.25l-.5-.5V3.25a.625.625 0 1 0-1.25 0V7.5l-.5.5h-4.25a.625.625 0 0 0 0 1.25h4.137l.613.5Z'/%3E%3C/svg%3E");
+    --toolbarButton-zoomOut-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath fill='%23000' d='M13.375 9.25a.625.625 0 1 0 0-1.25H2.625a.625.625 0 0 0 0 1.25h10.75Z'/%3E%3C/svg%3E");
+    --toolbarSidebar-border-bottom: none;
+    --toolbarSidebar-box-shadow: inset calc(-1px * var(--dir-factor)) 0 0 rgba(0, 0, 0, 0.25), 0 1px 0 rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.1);
+    --treeitem-bg-color: rgba(0, 0, 0, 0.15);
+    --treeitem-color: rgba(0, 0, 0, 0.8);
+    --treeitem-hover-color: rgba(0, 0, 0, 0.9);
+    --treeitem-selected-bg-color: rgba(0, 0, 0, 0.25);
+    --treeitem-selected-color: rgba(0, 0, 0, 0.9);
+    --viewer-container-height: 0;
+  }
+}
+
+[dir="rtl"]:root {
+  --dir-factor: -1;
+  --inline-start: right;
+  --inline-end: left;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-color: rgba(249, 249, 250, 1);
+    --body-bg-color: rgba(42, 42, 46, 1);
+    --progressBar-color: rgba(0, 96, 223, 1);
+    --progressBar-bg-color: rgba(40, 40, 43, 1);
+    --progressBar-blend-color: rgba(20, 68, 133, 1);
+    --scrollbar-color: rgba(121, 121, 123, 1);
+    --scrollbar-bg-color: rgba(35, 35, 39, 1);
+    --toolbar-icon-bg-color: rgba(255, 255, 255, 1);
+    --toolbar-icon-hover-bg-color: rgba(255, 255, 255, 1);
+    --sidebar-narrow-bg-color: rgba(42, 42, 46, 0.9);
+    --sidebar-toolbar-bg-color: rgba(50, 50, 52, 1);
+    --toolbar-bg-color: rgba(56, 56, 61, 1);
+    --toolbar-border-color: rgba(12, 12, 13, 1);
+    --button-hover-color: rgba(102, 102, 103, 1);
+    --toggled-btn-color: rgba(255, 255, 255, 1);
+    --toggled-btn-bg-color: rgba(0, 0, 0, 0.3);
+    --toggled-hover-active-btn-color: rgba(0, 0, 0, 0.4);
+    --dropdown-btn-bg-color: rgba(74, 74, 79, 1);
+    --separator-color: rgba(0, 0, 0, 0.3);
+    --field-color: rgba(250, 250, 250, 1);
+    --field-bg-color: rgba(64, 64, 68, 1);
+    --field-border-color: rgba(115, 115, 115, 1);
+    --treeitem-color: rgba(255, 255, 255, 0.8);
+    --treeitem-bg-color: rgba(255, 255, 255, 0.15);
+    --treeitem-hover-color: rgba(255, 255, 255, 0.9);
+    --treeitem-selected-color: rgba(255, 255, 255, 0.9);
+    --treeitem-selected-bg-color: rgba(255, 255, 255, 0.25);
+    --thumbnail-hover-color: rgba(255, 255, 255, 0.1);
+    --thumbnail-selected-color: rgba(255, 255, 255, 0.2);
+    --doorhanger-bg-color: rgba(74, 74, 79, 1);
+    --doorhanger-border-color: rgba(39, 39, 43, 1);
+    --doorhanger-hover-color: rgba(249, 249, 250, 1);
+    --doorhanger-hover-bg-color: rgba(93, 94, 98, 1);
+    --doorhanger-separator-color: rgba(92, 92, 97, 1);
+    --dialog-button-bg-color: rgba(92, 92, 97, 1);
+    --dialog-button-hover-bg-color: rgba(115, 115, 115, 1);
+    --loading-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='16'%0Afill='rgba(255,255,255,1)' style='animation:spinLoadingIcon 1s steps(12,end)%0Ainfinite'%3E%3Cstyle%3E@keyframes%0AspinLoadingIcon%7Bto%7Btransform:rotate(360deg)%7D%7D%3C/style%3E%3Cpath%0Ad='M7 3V1s0-1 1-1 1 1 1 1v2s0 1-1 1-1-1-1-1z'/%3E%3Cpath d='M4.63%0A4.1l-1-1.73S3.13 1.5 4 1c.87-.5 1.37.37 1.37.37l1 1.73s.5.87-.37%0A1.37c-.87.57-1.37-.37-1.37-.37z' fill-opacity='.93'/%3E%3Cpath%0Ad='M3.1 6.37l-1.73-1S.5 4.87 1 4c.5-.87 1.37-.37 1.37-.37l1.73 1s.87.5.37%0A1.37c-.5.87-1.37.37-1.37.37z' fill-opacity='.86'/%3E%3Cpath d='M3%0A9H1S0 9 0 8s1-1 1-1h2s1 0 1 1-1 1-1 1z' fill-opacity='.79'/%3E%3Cpath d='M4.1 11.37l-1.73 1S1.5 12.87 1%0A12c-.5-.87.37-1.37.37-1.37l1.73-1s.87-.5 1.37.37c.5.87-.37 1.37-.37 1.37z'%0Afill-opacity='.72'/%3E%3Cpath d='M3.63 13.56l1-1.73s.5-.87%0A1.37-.37c.87.5.37 1.37.37 1.37l-1 1.73s-.5.87-1.37.37c-.87-.5-.37-1.37-.37-1.37z'%0Afill-opacity='.65'/%3E%3Cpath d='M7 15v-2s0-1 1-1 1 1 1 1v2s0 1-1%0A1-1-1-1-1z' fill-opacity='.58'/%3E%3Cpath d='M10.63%0A14.56l-1-1.73s-.5-.87.37-1.37c.87-.5 1.37.37 1.37.37l1 1.73s.5.87-.37%0A1.37c-.87.5-1.37-.37-1.37-.37z' fill-opacity='.51'/%3E%3Cpath%0Ad='M13.56 12.37l-1.73-1s-.87-.5-.37-1.37c.5-.87 1.37-.37 1.37-.37l1.73 1s.87.5.37%0A1.37c-.5.87-1.37.37-1.37.37z' fill-opacity='.44'/%3E%3Cpath d='M15%0A9h-2s-1 0-1-1 1-1 1-1h2s1 0 1 1-1 1-1 1z' fill-opacity='.37'/%3E%3Cpath d='M14.56 5.37l-1.73%0A1s-.87.5-1.37-.37c-.5-.87.37-1.37.37-1.37l1.73-1s.87-.5 1.37.37c.5.87-.37 1.37-.37%0A1.37z' fill-opacity='.3'/%3E%3Cpath d='M9.64 3.1l.98-1.66s.5-.874%0A1.37-.37c.87.5.37 1.37.37 1.37l-1 1.73s-.5.87-1.37.37c-.87-.5-.37-1.37-.37-1.37z'%0Afill-opacity='.23'/%3E%3C/svg%3E");
+  }
+}
+
+@media screen and (forced-colors: active) {
+  :root {
+    --button-hover-color: Highlight;
+    --doorhanger-hover-bg-color: Highlight;
+    --toolbar-icon-opacity: 1;
+    --toolbar-icon-bg-color: ButtonText;
+    --toolbar-icon-hover-bg-color: ButtonFace;
+    --toolbar-border-color: CanvasText;
+    --toolbar-border-bottom: 1px solid var(--toolbar-border-color);
+    --toolbar-box-shadow: none;
+    --toggled-btn-color: HighlightText;
+    --toggled-btn-bg-color: LinkText;
+    --doorhanger-hover-color: ButtonFace;
+    --doorhanger-border-color-whcm: 1px solid ButtonText;
+    --doorhanger-triangle-opacity-whcm: 0;
+    --dialog-button-border: 1px solid Highlight;
+    --dialog-button-hover-bg-color: Highlight;
+    --dialog-button-hover-color: ButtonFace;
+    --dropdown-btn-border: 1px solid ButtonText;
+    --field-border-color: ButtonText;
+    --main-color: CanvasText;
+    --separator-color: GrayText;
+    --doorhanger-separator-color: GrayText;
+    --toolbarSidebar-box-shadow: none;
+    --toolbarSidebar-border-bottom: 1px solid var(--toolbar-border-color);
+  }
+}
+
+.annotationLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transform-origin: 0 0;
+  z-index: 3;
+}
+
+.annotationLayer section {
+  position: absolute;
+  text-align: initial;
+  pointer-events: auto;
+  box-sizing: border-box;
+  transform-origin: 0 0;
+}
+
+.annotationLayer .linkAnnotation {
+  outline: var(--link-outline);
+}
+
+.annotationLayer :is(.linkAnnotation, .buttonWidgetAnnotation.pushButton)>a {
+  position: absolute;
+  font-size: 1em;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.annotationEditorLayer {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: calc(100px * var(--scale-factor));
+  transform-origin: 0 0;
+  cursor: auto;
+  z-index: 4;
+}
+
+.idan_pdfViewer {
+  /* Define this variable here and not in :root to avoid to reflow all the UI
+     when scaling (see #15929). */
+  --scale-factor: 1;
+  padding-bottom: var(--pdfViewer-padding-bottom);
+}
+
+.idan_pdfViewer .canvasWrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.idan_pdfViewer .page {
+  direction: ltr;
+  width: 816px;
+  height: 1056px;
+  margin: var(--page-margin);
+  position: relative;
+  overflow: visible;
+  border: var(--page-border);
+  background-clip: content-box;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.idan_pdfViewer .page canvas {
+  margin: 0;
+  display: block;
+}
+
+.idan_pdfViewer .page canvas .structTree {
+  contain: strict;
+}
+
+.idan_pdfViewer .page canvas[hidden] {
+  display: none;
+}
+
+.idan_pdfViewer .page canvas[zooming] {
+  width: 100%;
+  height: 100%;
+}
+
+.idan_pdfViewer .page.loadingIcon::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--loading-icon) center no-repeat;
+  display: none;
+  transition-property: display;
+  transition-delay: var(--loading-icon-delay);
+  z-index: 5;
+  contain: strict;
+}
+
+.idan_pdfViewer .page.loading::after {
+  display: block;
+}
+
+.idan_pdfViewer .page:not(.loading)::after {
+  transition-property: none;
+  display: none;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  :root {
+    --sidebar-transition-duration: 0;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--body-bg-color);
+  scrollbar-color: var(--scrollbar-color) var(--scrollbar-bg-color);
+}
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+#idan_outerContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#idan_mainContainer {
+  position: absolute;
+  inset: 0;
+  min-width: 350px;
+}
+
+#idan_viewerContainer {
+  overflow: auto;
+  position: absolute;
+  inset: 32px 0 0;
+  outline: none;
+}
+
+#idan_viewerContainer:not(.pdfPresentationMode) {
+  transition-duration: var(--sidebar-transition-duration);
+  transition-timing-function: var(--sidebar-transition-timing-function);
+}
+
+.idan_toolbar {
+  position: relative;
+  inset-inline: 0;
+  z-index: 9999;
+  cursor: default;
+  font: message-box;
+}
+
+:is(.idan_toolbar, .editorParamsToolbar, .findbar, #sidebarContainer) :is(input, button, select),
+.secondaryToolbar :is(input, button, a, select) {
+  outline: none;
+  font: message-box;
+}
+
+#toolbarContainer {
+  width: 100%;
+}
+
+
+#toolbarContainer,
+.findbar,
+.secondaryToolbar,
+.editorParamsToolbar {
+  position: relative;
+  height: 32px;
+  background-color: var(--toolbar-bg-color);
+  box-shadow: var(--toolbar-box-shadow);
+  border-bottom: var(--toolbar-border-bottom);
+}
+
+#toolbarViewer {
+  height: 32px;
+}
+
+#idan_loadingBar {
+  /* Define these variables here, and not in :root, to avoid reflowing the
+     entire viewer when updating progress (see issue 15958). */
+  --progressBar-percent: 0%;
+  --progressBar-end-offset: 0;
+  position: absolute;
+  inset-inline: 0 var(--progressBar-end-offset);
+  height: 4px;
+  background-color: var(--progressBar-bg-color);
+  border-bottom: 1px solid var(--toolbar-border-color);
+  transition-property: inset-inline-start;
+  transition-duration: var(--sidebar-transition-duration);
+  transition-timing-function: var(--sidebar-transition-timing-function);
+}
+
+#toolbarViewerMiddle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#toolbarViewerLeft>*,
+#toolbarViewerMiddle>*,
+#toolbarViewerRight>*,
+#toolbarSidebarLeft *,
+#toolbarSidebarRight *,
+.findbar * {
+  position: relative;
+  float: var(--inline-start);
+}
+
+
+.idan_splitToolbarButton {
+  margin: 2px;
+  display: inline-block;
+}
+
+.idan_splitToolbarButton>.idan_toolbarButton {
+  float: var(--inline-start);
+}
+
+.idan_toolbarButton,
+.secondaryToolbarButton,
+.dialogButton {
+  border: none;
+  background: none;
+  width: 28px;
+  height: 28px;
+  outline: none;
+}
+
+
+.idan_toolbarButton>span {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+:is(.idan_toolbarButton, .secondaryToolbarButton, .dialogButton)[disabled] {
+  opacity: 0.5;
+}
+
+.idan_splitToolbarButton>.idan_toolbarButton {
+  position: relative;
+  margin: 0;
+}
+
+
+.idan_splitToolbarButtonSeparator {
+  float: var(--inline-start);
+  margin: 4px 0;
+  width: 1px;
+  height: 20px;
+  background-color: var(--separator-color);
+}
+
+.idan_toolbarButton,
+.idan_dropdownToolbarButton,
+.secondaryToolbarButton,
+.dialogButton {
+  min-width: 16px;
+  margin: 2px 1px;
+  padding: 2px 6px 0;
+  border: none;
+  border-radius: 2px;
+  color: var(--main-color);
+  font-size: 12px;
+  line-height: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: default;
+  box-sizing: border-box;
+}
+
+.idan_toolbarButton:is(:hover, :focus-visible) {
+  background-color: var(--button-hover-color);
+}
+
+.secondaryToolbarButton:is(:hover, :focus-visible) {
+  background-color: var(--doorhanger-hover-bg-color);
+  color: var(--doorhanger-hover-color);
+}
+
+:is(.idan_toolbarButton, .secondaryToolbarButton).toggled,
+.idan_splitToolbarButton.toggled>.idan_toolbarButton.toggled {
+  background-color: var(--toggled-btn-bg-color);
+  color: var(--toggled-btn-color);
+}
+
+:is(.idan_toolbarButton, .secondaryToolbarButton).toggled::before {
+  background-color: var(--toggled-btn-color);
+}
+
+:is(.idan_toolbarButton, .secondaryToolbarButton).toggled:hover:active,
+.idan_splitToolbarButton.toggled>.idan_toolbarButton.toggled:hover:active {
+  background-color: var(--toggled-hover-active-btn-color);
+}
+
+.idan_dropdownToolbarButton {
+  /* Define this variable here, and not in :root, to avoid reflowing the
+     entire viewer when updating the width. */
+  --scale-select-width: 140px;
+  width: var(--scale-select-width);
+  padding: 0;
+  background-color: var(--dropdown-btn-bg-color);
+  border: var(--dropdown-btn-border);
+}
+
+.idan_dropdownToolbarButton::after {
+  top: 6px;
+  inset-inline-end: 6px;
+  pointer-events: none;
+  -webkit-mask-image: var(--toolbarButton-menuArrow-icon);
+  mask-image: var(--toolbarButton-menuArrow-icon);
+}
+
+.idan_dropdownToolbarButton>select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: inherit;
+  height: 28px;
+  font-size: 12px;
+  color: var(--main-color);
+  margin: 0;
+  padding: 1px 0 2px;
+  -webkit-padding-start: 6px;
+  padding-inline-start: 6px;
+  border: none;
+  background-color: var(--dropdown-btn-bg-color);
+}
+
+.idan_dropdownToolbarButton>select:is(:hover, :focus-visible) {
+  background-color: var(--button-hover-color);
+  color: var(--toggled-btn-color);
+}
+
+.idan_dropdownToolbarButton>select>option {
+  background: var(--doorhanger-bg-color);
+  color: var(--main-color);
+}
+
+.toolbarButtonSpacer {
+  width: 30px;
+  display: inline-block;
+  height: 1px;
+}
+
+:is(.idan_toolbarButton, .secondaryToolbarButton, .treeItemToggler)::before,
+.idan_dropdownToolbarButton::after {
+  /* All matching images have a size of 16x16
+   * All relevant containers have a size of 28x28 */
+  position: absolute;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  content: "";
+  background-color: var(--toolbar-icon-bg-color);
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.idan_dropdownToolbarButton:is(:hover, :focus-visible, :active)::after {
+  background-color: var(--toolbar-icon-hover-bg-color);
+}
+
+.idan_toolbarButton::before {
+  opacity: var(--toolbar-icon-opacity);
+  top: 6px;
+  left: 6px;
+}
+
+.idan_toolbarButton:is(:hover, :focus-visible)::before,
+.secondaryToolbarButton:is(:hover, :focus-visible)::before {
+  background-color: var(--toolbar-icon-hover-bg-color);
+}
+
+.secondaryToolbarButton::before {
+  opacity: var(--doorhanger-icon-opacity);
+  top: 5px;
+  inset-inline-start: 12px;
+}
+
+
+#idan_previous::before {
+  -webkit-mask-image: var(--toolbarButton-pageUp-icon);
+  mask-image: var(--toolbarButton-pageUp-icon);
+}
+
+#idan_next::before {
+  -webkit-mask-image: var(--toolbarButton-pageDown-icon);
+  mask-image: var(--toolbarButton-pageDown-icon);
+}
+
+#idan_zoomOut::before {
+  -webkit-mask-image: var(--toolbarButton-zoomOut-icon);
+  mask-image: var(--toolbarButton-zoomOut-icon);
+}
+
+#idan_zoomIn::before {
+  -webkit-mask-image: var(--toolbarButton-zoomIn-icon);
+  mask-image: var(--toolbarButton-zoomIn-icon);
+}
+
+#idan_print::before,
+#secondaryPrint::before {
+  -webkit-mask-image: var(--toolbarButton-print-icon);
+  mask-image: var(--toolbarButton-print-icon);
+}
+
+:is(#download, #secondaryDownload)::before {
+  -webkit-mask-image: var(--toolbarButton-download-icon);
+  mask-image: var(--toolbarButton-download-icon);
+}
+
+.idan_toolbarField {
+  padding: 4px 7px;
+  margin: 3px 0;
+  border-radius: 2px;
+  background-color: var(--field-bg-color);
+  background-clip: padding-box;
+  border: 1px solid var(--field-border-color);
+  box-shadow: none;
+  color: var(--field-color);
+  font-size: 12px;
+  line-height: 16px;
+  outline: none;
+}
+
+#idan_pageNumber {
+  -moz-appearance: textfield;
+  /* hides the spinner in moz */
+  text-align: end;
+  width: 40px;
+  background-size: 0 0;
+  transition-property: none;
+}
+
+.idan_toolbarLabel {
+  min-width: 16px;
+  padding: 7px;
+  margin: 2px;
+  border-radius: 2px;
+  color: var(--main-color);
+  font-size: 12px;
+  line-height: 14px;
+  text-align: left;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+#idan_numPages.idan_toolbarLabel {
+  -webkit-padding-start: 3px;
+  padding-inline-start: 3px;
+}
+
+#idan_pageNumber::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+@media all and (max-width: 900px) {
+  #toolbarViewerMiddle {
+    display: table;
+    margin: auto;
+    left: auto;
+    position: inherit;
+    transform: none;
+  }
+}
+
+@media all and (max-width: 840px) {
+  #sidebarContainer {
+    background-color: var(--sidebar-narrow-bg-color);
+  }
+
+  #idan_outerContainer.sidebarOpen #idan_viewerContainer {
+    inset-inline-start: 0 !important;
+  }
+}
+
+@media all and (max-width: 820px) {
+  #idan_outerContainer .hiddenLargeView {
+    display: none;
+  }
+
+  #idan_outerContainer .visibleLargeView {
+    display: inherit;
+  }
+}
+
+@media all and (max-width: 750px) {
+  #idan_outerContainer .idan_hiddenMediumView {
+    display: none;
+  }
+
+  #idan_outerContainer .visibleMediumView {
+    display: inherit;
+  }
+}
+
+@media all and (max-width: 690px) {
+
+  .hiddenSmallView,
+  .hiddenSmallView * {
+    display: none;
+  }
+
+  .toolbarButtonSpacer {
+    width: 0;
+  }
+}
+
+@media all and (max-width: 560px) {
+  #scaleSelectContainer {
+    display: none;
+  }
+}
+
+/* === CUSTOM ADDITIONS === */
+
+#idan_numPages {
+  visibility: hidden;
+}
+
+#idan_numPages.visible {
+  visibility: visible;
+}
+
+#idan_pageNumber {
+  margin: 0;
+}
+
+.idan_splitToolbarButton {
+  margin-left: 10px;
+}
+
+.idan_splitToolbarButton:last-child {
+  margin-left: 2px;
+}
+
+.idan_toolbarButton[disabled]:hover,
+.idan_toolbarButton[disabled]:focus-visible {
+  background-color: transparent !important;
+}
+
+.idan_dropdownToolbarButton select,
+.idan_toolbarButton {
+  cursor: pointer;
+}
+
+[dir="rtl"] #idan_pageNumber {
+  direction: rtl;
+  text-align: right;
+}
