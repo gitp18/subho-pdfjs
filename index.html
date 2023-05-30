@@ -10,15 +10,26 @@
   </style>
 </head>
 <body>
-  <input type="file" id="pdfInput" accept=".pdf">
+  <!-- <input type="file" id="pdfInput" accept=".pdf"> -->
   <div id="pdfViewer"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
   <script>
-    const pdfInput = document.getElementById('pdfInput');
     const pdfViewer = document.getElementById('pdfViewer');
+    const DEFAULT_SCALE_DELTA = 1.1;
+    const DEFAULT_SCALE_VALUE = 'auto';
+    const INITIAL_SCALE = 0.1;
+    const MAX_SCALE = 4.0;
+    const MIN_SCALE = 0.25;
+    //const CMAP_URL = '/vendors/pdfjs/cmaps/';
+    //const STANDARD_FONT_DATA_URL = '/vendors/pdfjs/standard_fonts/';
 
-    pdfInput.addEventListener('change', function(event) {
+    //pdfjsLib.GlobalWorkerOptions.workerSrc = '/vendors/pdfjs/build/pdf.worker.js';
+
+
+    /* 
+    //If the PDF file get's uploaded    
+    document.getElementById('pdfInput').addEventListener('change', function(event) {
       const file = event.target.files[0];
       if (file) {
         const fileReader = new FileReader();
@@ -28,7 +39,22 @@
         };
         fileReader.readAsArrayBuffer(file);
       }
-    });
+    });*/
+
+    // When the PDF file won't be uploaded, rather it's on the server
+    const DOCUMENT_URL = "./pdfs/lesson 01 - missing font - gets stuck on mobile.pdf";
+    fetch(DOCUMENT_URL)
+      .then(response => response.arrayBuffer())
+      .then(arrayBuffer => {
+        // Convert the received array buffer into a Uint8Array
+        const typedArray = new Uint8Array(arrayBuffer);
+        // Call the displayPDF function with the typedArray
+        displayPDF(typedArray);
+      })
+      .catch(error => {
+        // Handle any errors that occur during the fetching process
+        console.error('Error fetching the PDF file:', error);
+      });
 
     function displayPDF(pdfData) {
       pdfjsLib.getDocument({ data: pdfData }).promise.then(function(pdf) {
